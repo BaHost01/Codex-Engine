@@ -5,6 +5,8 @@
 #include <vector>
 
 #include "Codex/Math/Transform.h"
+#include "Codex/Scene/Environment.h"
+#include "Codex/UI/UiState.h"
 
 #include "Codex/Scene/Environment.h"
 #include "Codex/UI/UiState.h"
@@ -26,6 +28,7 @@ struct EngineConfig {
 struct WorldState {
     std::vector<Entity> entities {};
 
+    scene::Environment environment {};
 };
 
 class Engine {
@@ -37,6 +40,7 @@ public:
 
     [[nodiscard]] const EngineConfig &config() const;
     [[nodiscard]] const WorldState &world() const;
+    [[nodiscard]] const ui::UiState &ui_state() const;
 
 
 
