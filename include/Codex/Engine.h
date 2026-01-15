@@ -5,6 +5,8 @@
 #include <vector>
 
 #include "Codex/Math/Transform.h"
+#include "Codex/Scene/Environment.h"
+#include "Codex/UI/UiState.h"
 
 namespace codex {
 
@@ -21,6 +23,7 @@ struct EngineConfig {
 
 struct WorldState {
     std::vector<Entity> entities {};
+    scene::Environment environment {};
 };
 
 class Engine {
@@ -32,10 +35,16 @@ public:
 
     [[nodiscard]] const EngineConfig &config() const;
     [[nodiscard]] const WorldState &world() const;
+    [[nodiscard]] const ui::UiState &ui_state() const;
 
 private:
     EngineConfig config_;
     WorldState world_ {};
+    ui::UiState ui_state_ {};
+    std::uint32_t next_entity_id_ {1U};
+
+    void seed_world();
+    void seed_ui();
     std::uint32_t next_entity_id_ {1U};
 
     void seed_world();
