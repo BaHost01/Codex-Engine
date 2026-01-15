@@ -3,6 +3,7 @@
 Codex Engine is a lightweight, educational 3D game engine scaffold written in modern C++.
 This repository currently focuses on establishing core engine concepts like math types,
 transforms, a minimal UI state, and a simple environment description so we can iterate quickly.
+transforms, and a simple main loop so we can iterate quickly.
 
 ## Goals
 

@@ -45,6 +45,9 @@ private:
 
     void seed_world();
     void seed_ui();
+    std::uint32_t next_entity_id_ {1U};
+
+    void seed_world();
 };
 
 } // namespace codex

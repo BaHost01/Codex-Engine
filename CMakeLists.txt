@@ -9,6 +9,11 @@ add_library(codex_engine_lib
 )
 
 target_include_directories(codex_engine_lib
+add_library(codex_engine
+    src/Engine.cpp
+)
+
+target_include_directories(codex_engine
     PUBLIC
         ${PROJECT_SOURCE_DIR}/include
 )
@@ -20,4 +25,5 @@ add_executable(codex_engine
 target_link_libraries(codex_engine
     PRIVATE
         codex_engine_lib
+        codex_engine
 )
