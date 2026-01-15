@@ -9,6 +9,7 @@ transforms, and a simple main loop so we can iterate quickly.
 
 - Provide foundational math utilities (vectors, transforms).
 - Define a minimal world representation with entities.
+
 - Sketch a basic 3D environment (sky, ground, light) for scene setup.
 - Introduce a small HUD model for UI iteration.
 - Create an engine loop that demonstrates update flow.
@@ -27,5 +28,6 @@ cmake --build build
 - Add a renderer abstraction and GPU backend.
 - Introduce a scene graph and component system.
 - Integrate input handling and window creation.
+
 - Connect the UI state to a real debug overlay.
 ```
