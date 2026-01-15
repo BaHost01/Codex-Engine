@@ -7,7 +7,7 @@ namespace codex {
 Engine::Engine(EngineConfig config)
     : config_(std::move(config)) {
     seed_world();
-    seed_ui();
+
 }
 
 void Engine::run(std::uint32_t frames) {
@@ -15,11 +15,7 @@ void Engine::run(std::uint32_t frames) {
 
     std::cout << "Starting " << config_.application_name
               << " (" << config_.target_fps << " FPS target)" << std::endl;
-    std::cout << "Environment: " << world_.environment.sky.description
-              << ", ground=" << world_.environment.ground.material
-              << ", lights=" << world_.environment.lights.size() << std::endl;
-    std::cout << "UI: " << ui_state_.hud.title
-              << " panels=" << ui_state_.hud.panels.size() << std::endl;
+
 
     for (std::uint32_t frame = 0; frame < frames; ++frame) {
         tick(delta_seconds);
@@ -43,9 +39,6 @@ const WorldState &Engine::world() const {
     return world_;
 }
 
-const ui::UiState &Engine::ui_state() const {
-    return ui_state_;
-}
 
 void Engine::seed_world() {
     Entity camera {
@@ -69,6 +62,7 @@ void Engine::seed_world() {
     world_.entities = {camera, light, cube};
 }
 
+
 void Engine::seed_ui() {
     ui::Panel diagnostics;
     diagnostics.name = "Diagnostics";
@@ -88,5 +82,4 @@ void Engine::seed_ui() {
     ui_state_.hud.panels = {diagnostics, scene_panel};
     ui_state_.focused_panel = diagnostics.name;
 }
-
-} // namespace codex
+}
